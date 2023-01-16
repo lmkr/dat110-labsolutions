@@ -17,7 +17,7 @@ public class TCPClient {
 		this.port = port;
 	}
 	
-	public String report (String text) {
+	public void report (String text) {
 	
 		String outtext = null;
 		
@@ -41,6 +41,5 @@ public class TCPClient {
 			
 		}
 		
-		return outtext;
 	}
 }

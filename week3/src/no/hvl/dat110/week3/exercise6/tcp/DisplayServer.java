@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 
-public class DIsplayServer {
+public class DisplayServer {
 	
 	public static void main(String[] args) {
 		
