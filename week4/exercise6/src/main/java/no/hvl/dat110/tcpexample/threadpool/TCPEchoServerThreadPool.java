@@ -1,15 +1,18 @@
-package no.hvl.dat110.tcpexample.server;
+package no.hvl.dat110.tcpexample.threadpool;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
 
-public class TCPEchoServerMultiThreads {
+public class TCPEchoServerThreadPool {
 
     private ServerSocket welcomeSocket;
+    private BlockingQueue<Socket> queue;
 
-    public TCPEchoServerMultiThreads(ServerSocket welcomeSocket) {
+    public TCPEchoServerThreadPool(ServerSocket welcomeSocket, BlockingQueue<Socket> queue) {
         this.welcomeSocket = welcomeSocket;
+        this.queue = queue;
     }
 
     public void process() {
@@ -20,10 +23,8 @@ public class TCPEchoServerMultiThreads {
 
             Socket connectionSocket = welcomeSocket.accept();
 
-            // create and start new thread to handle the request
-            EchoServerThread echothread = new EchoServerThread(connectionSocket);
-
-            echothread.start();
+            // insert connection socket into queue of connection to be handled
+            queue.add(connectionSocket);
 
         } catch (IOException ex) {
 

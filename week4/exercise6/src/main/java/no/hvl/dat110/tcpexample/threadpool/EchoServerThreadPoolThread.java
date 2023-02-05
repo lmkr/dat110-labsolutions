@@ -1,4 +1,4 @@
-package no.hvl.dat110.tcpexample.server;
+package no.hvl.dat110.tcpexample.threadpool;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

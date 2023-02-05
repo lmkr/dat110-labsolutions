@@ -1,4 +1,4 @@
-package no.hvl.dat110.tcpexample.server;
+package no.hvl.dat110.tcpexample.threadpool;
 
 import no.hvl.dat110.tcpexample.system.Configuration;
 
